@@ -1,8 +1,15 @@
-import { AUTH_USER } from '../constants';
+import * as Constants from '../constants';
 
 export function loginUser(user) {
   return {
-    type: AUTH_USER,
-    payload: { user }
+    type: Constants.AUTH_USER,
+    payload:  user 
+  }
+}
+
+export function registerUser(user) {
+  return {
+    type: Constants.REGISTER_USER,
+    payload: user
   }
 }

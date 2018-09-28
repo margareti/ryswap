@@ -1,8 +1,7 @@
 import { AUTH_USER } from '../constants'
 
 export default (user = {}, action) => {
-  console.log(action.type);
-  
+ 
   switch (action.type) {
     
     case AUTH_USER :
