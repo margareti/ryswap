@@ -22,8 +22,8 @@ class Login extends Component {
   }
 
   checkDisabledLogin = () => {
-    return !(this.state.usernameOrEmail && this.state.password 
-      && this.state.usernameOrEmail.length > 3 && this.state.password.length > 3)
+    return !(this.state.username && this.state.password 
+      && this.state.username.length > 3 && this.state.password.length > 3)
   }
 
   render() {
@@ -31,7 +31,7 @@ class Login extends Component {
       <div>
         <form>
           <label htmlFor="username">Username: </label>
-          <input type="text" id="username" name="usernameOrEmail" value={this.state.usernameOrEmail} onChange={this.handleInputChange} />
+          <input type="text" id="username" name="username" value={this.state.username} onChange={this.handleInputChange} />
           <label htmlFor="password">Password: </label>
           <input type="password" id="password" name="password" value={this.state.password} onChange={this.handleInputChange} />
           <button type="button" disabled={this.checkDisabledLogin()} onClick={this.handleLoginButton}>Log In</button>
