@@ -13,3 +13,9 @@ export function registerUser(user) {
     payload: user
   }
 }
+
+export function resetUser() {
+  return {
+    type: Constants.RESET_USER
+  }
+}

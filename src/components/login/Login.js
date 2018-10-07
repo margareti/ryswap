@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { loginUser } from '../../actions/actions'
+import { loginUser, resetUser} from '../../actions/actions'
 
 
 
@@ -8,6 +8,11 @@ class Login extends Component {
 
   state = {
      
+  }
+
+  componentDidMount() {
+    console.log("Component did mount")
+    this.props.resetUser();
   }
 
   handleLoginButton = (ev) => {
@@ -41,4 +46,4 @@ class Login extends Component {
   }
 }
 
-export default connect(null, {loginUser})(Login);
+export default connect(null, {loginUser, resetUser})(Login);
