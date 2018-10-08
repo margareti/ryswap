@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Register from './components/register/Register';
 import Login from './components/login/Login';
 import Home from './components/home/Home';
-
 
 class AppRoute extends Component {
   render() {
@@ -18,7 +17,7 @@ class AppRoute extends Component {
         </Switch>
         <Route path="/home" component={Home} />
       </div>
-    )
+    );
   }
 }
 

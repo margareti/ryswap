@@ -1,0 +1,17 @@
+@import '../../style/vars.scss';
+
+.navigation {
+  text-align: right;
+  background: $transparentBlack;
+  padding: 10px;
+  border-bottom: 1px solid $transparentWhite;
+
+  &__button {
+    background: none;
+    font-size: 14px;
+    color: $white;
+    border: 1px solid $transparentWhite;
+    padding: 8px 12px;
+    border-radius: $borderRadius;
+  }
+}

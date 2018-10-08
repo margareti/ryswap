@@ -1,39 +1,41 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { getCurrentUser, resetUser} from '../../actions/actions'
+import { connect } from 'react-redux';
+import { getCurrentUser, resetUser } from '../../actions/actions';
 import Navigation from '../navigation/Navigation';
+import '../block/block.scss';
 
 class Home extends Component {
-
   componentWillMount() {
     this.props.getCurrentUser();
   }
 
   componentWillReceiveProps(props) {
-    if ( !props.user && !props.loggedIn) {
-      this.props.history.push('/login')
+    if (!props.user && !props.loggedIn) {
+      this.props.history.push('/login');
     }
   }
 
   render() {
     if (!this.props.user) {
-      return null
-    } 
+      return null;
+    }
     return (
-      <div> 
-        <Navigation/>
-        <h3>{this.props.user && this.props.user.name}, Welcome to Ryswap Home!</h3>
+      <div>
+        <Navigation />
+        <h3 className="block">{this.props.user && this.props.user.name}, Welcome to Ryswap Home!</h3>
       </div>
-    )
+    );
   }
-  
 }
 
 const mapStateToProps = state => {
   return {
     user: state.auth.user,
     loggedIn: state.auth.loggedIn
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, {getCurrentUser, resetUser})(Home);
+export default connect(
+  mapStateToProps,
+  { getCurrentUser, resetUser }
+)(Home);
