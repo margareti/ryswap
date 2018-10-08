@@ -25,3 +25,9 @@ export function getCurrentUser() {
     type: Constants.GET_CURRENT_USER
   }
 }
+
+export function resetRegisterPage() {
+  return {
+    type: Constants.REGISTER_USER + Constants.RESET
+  }
+}

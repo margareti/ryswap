@@ -18,8 +18,10 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "node-sass": "^4.9.3",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "sass-loader": "^7.1.0"
   }
 }

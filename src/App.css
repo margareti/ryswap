@@ -26,3 +26,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: url(https://www.fft.ie/wp-content/uploads/2018/02/ryanairplane-e1519061191381.jpeg);
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+}
+
+button {cursor: pointer;}

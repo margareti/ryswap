@@ -8,3 +8,4 @@ export const API = 'http://localhost:8080/api'
 
 export const SUCCESS = '_SUCCESS';
 export const FAILURE = '_FAILURE';
+export const RESET = '_RESET';

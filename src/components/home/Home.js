@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { getCurrentUser, resetUser} from '../../actions/actions'
+import Navigation from '../navigation/Navigation';
 
 class Home extends Component {
 
@@ -14,17 +15,13 @@ class Home extends Component {
     }
   }
 
-  handleLogout = () => {
-    this.props.resetUser()
-  }
-
   render() {
     if (!this.props.user) {
       return null
     } 
     return (
-      <div>
-        <div style={{textAlign: 'right'}}><button onClick={this.handleLogout}>Logout</button></div>
+      <div> 
+        <Navigation/>
         <h3>{this.props.user && this.props.user.name}, Welcome to Ryswap Home!</h3>
       </div>
     )
