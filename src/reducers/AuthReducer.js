@@ -1,19 +1,29 @@
-import { AUTH_USER } from '../constants'
+import { GET_CURRENT_USER, AUTH_USER, SUCCESS, FAILURE, RESET_USER } from '../constants'
 
-const initialAuthStore = {};
+const initialAuthStore = {
+  user: null, 
+  loggedIn: null
+};
 
 export default (state = initialAuthStore, action) => {
  
   switch (action.type) {
     
     case AUTH_USER :
-    console.log('caught auth user action');
+      return {...state};
+
+    case AUTH_USER + SUCCESS: 
+      return { ...state, loggedIn: true} 
     
-    return {...state};
-    case 'AUTH_USER_SUCCESS': 
-      console.log(action)
-      
-      return { ...state}
+    case RESET_USER + SUCCESS: 
+      return {...initialAuthStore, loggedIn: false};
+
+    case GET_CURRENT_USER + SUCCESS: 
+        return { ...initialAuthStore, user: action.user}
+
+    case GET_CURRENT_USER + FAILURE: 
+      return { ...initialAuthStore, loggedIn : false}
+
     default:
       return { ...state}
   }

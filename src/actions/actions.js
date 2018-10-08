@@ -19,3 +19,9 @@ export function resetUser() {
     type: Constants.RESET_USER
   }
 }
+
+export function getCurrentUser() {
+  return {
+    type: Constants.GET_CURRENT_USER
+  }
+}

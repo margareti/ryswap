@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { loginUser, resetUser} from '../../actions/actions'
-
-
 
 class Login extends Component {
 
-  state = {
-     
-  }
+  state = {}
 
   componentDidMount() {
-    console.log("Component did mount")
     this.props.resetUser();
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.loggedIn) {
+      this.props.history.push('/home');
+    }
   }
 
   handleLoginButton = (ev) => {
@@ -39,11 +40,17 @@ class Login extends Component {
           <input type="text" id="username" name="username" value={this.state.username} onChange={this.handleInputChange} />
           <label htmlFor="password">Password: </label>
           <input type="password" id="password" name="password" value={this.state.password} onChange={this.handleInputChange} />
-          <button type="button" disabled={this.checkDisabledLogin()} onClick={this.handleLoginButton}>Log In</button>
+          <button disabled={this.checkDisabledLogin()} onClick={this.handleLoginButton} type="submit">Log In</button>
         </form>
       </div>
     );
   }
 }
 
-export default connect(null, {loginUser, resetUser})(Login);
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.auth.loggedIn
+  }
+}
+
+export default connect(mapStateToProps, {loginUser, resetUser})(Login);
