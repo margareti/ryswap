@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { loginUser, resetUser} from '../../actions/actions'
 
 class Login extends Component {
@@ -42,6 +43,8 @@ class Login extends Component {
           <input type="password" id="password" name="password" value={this.state.password} onChange={this.handleInputChange} />
           <button disabled={this.checkDisabledLogin()} onClick={this.handleLoginButton} type="submit">Log In</button>
         </form>
+        <p>Or <Link to="/register">register here</Link> if you don't have an account</p>
+
       </div>
     );
   }

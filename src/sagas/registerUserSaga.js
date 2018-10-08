@@ -1,6 +1,6 @@
 import { takeEvery, call, put} from 'redux-saga/effects';
 import {registerApi} from '../apiCalls/registerApi';
-import { REGISTER_USER, SUCCESS } from '../constants';
+import { REGISTER_USER, SUCCESS, FAILURE } from '../constants';
 
 export default function* registerWatcher() {
   yield takeEvery('Margarita', registerUserFlow)
@@ -13,7 +13,8 @@ function* registerUserFlow(action) {
  try{
   const result =  yield call(registerApi, action.payload);
   yield put({type : REGISTER_USER + SUCCESS, result})
- }catch(e){
-  yield put({type : 'ERROR', e})
+ }catch(error){
+  yield put({type : REGISTER_USER + FAILURE, error})
+
  }
 }
