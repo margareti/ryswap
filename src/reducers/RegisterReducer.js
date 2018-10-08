@@ -4,17 +4,17 @@ const initialRegisterState = {
   success: null,
   error: null,
   loading: null
-}
+};
 
 export default (registerState = initialRegisterState, action) => {
   switch (action.type) {
     case REGISTER_USER + SUCCESS:
-      return {...initialRegisterState, success: true};
+      return { ...initialRegisterState, success: true };
     case REGISTER_USER + RESET:
-      return {...initialRegisterState};
+      return { ...initialRegisterState };
     case REGISTER_USER + FAILURE:
-      return {...initialRegisterState, error: true};
+      return { ...initialRegisterState, error: true };
     default:
-      return {...registerState};
+      return { ...registerState };
   }
-}
+};

@@ -5,7 +5,5 @@ import resetUserSaga from './resetUserSaga';
 import userSaga from './userSaga';
 
 export default function* root() {
-  yield all([
-    authUserSaga(), registerUserSaga(), resetUserSaga(), userSaga()
-  ]);
+  yield all([authUserSaga(), registerUserSaga(), resetUserSaga(), userSaga()]);
 }

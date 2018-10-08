@@ -1,17 +1,17 @@
-import { takeEvery, call, put} from 'redux-saga/effects';
+import { takeEvery, call, put } from 'redux-saga/effects';
 import { GET_CURRENT_USER, SUCCESS, FAILURE } from '../constants';
 import { getCurrentUser } from '../apiCalls/userApi';
 
 export default function* userWatcher() {
-  yield takeEvery(GET_CURRENT_USER, getCurrentUserFlow)
+  yield takeEvery(GET_CURRENT_USER, getCurrentUserFlow);
 }
 
 function* getCurrentUserFlow() {
- try{
-  const user = yield call(getCurrentUser);
+  try {
+    const user = yield call(getCurrentUser);
 
-  yield put({type : GET_CURRENT_USER + SUCCESS, user})
- }catch(e){
-  yield put({type : GET_CURRENT_USER + FAILURE, e})
- }
+    yield put({ type: GET_CURRENT_USER + SUCCESS, user });
+  } catch (e) {
+    yield put({ type: GET_CURRENT_USER + FAILURE, e });
+  }
 }
