@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { getCurrentUser, resetUser } from '../../actions/actions';
 import Navigation from '../navigation/Navigation';
 import '../block/block.scss';
+import FindFlight from '../findFlight/FindFlight';
+import MyFlights from '../myFlights/MyFlights';
 
 class Home extends Component {
   componentWillMount() {
@@ -22,7 +24,9 @@ class Home extends Component {
     return (
       <div>
         <Navigation />
-        <h3 className="block">{this.props.user && this.props.user.name}, Welcome to Ryswap Home!</h3>
+        <h3 className="block  block--first">{this.props.user && this.props.user.name}, Welcome to Ryswap Home!</h3>
+        <FindFlight/>
+        <MyFlights/>
       </div>
     );
   }
