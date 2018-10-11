@@ -30,7 +30,7 @@
 body {
   min-width: 100vw;
   min-height: 100vh;
-  background: url(https://www.fft.ie/wp-content/uploads/2018/02/ryanairplane-e1519061191381.jpeg);
+  background: url('/ryanair.jpeg');
   background-attachment: fixed;
   background-size: cover;
   position: relative;
