@@ -31,3 +31,11 @@ export function resetRegisterPage() {
     type: Constants.REGISTER_USER + Constants.RESET
   };
 }
+
+export function loadRoutes() {
+  return {
+    type: Constants.LOAD_ROUTES + Constants.REQUEST
+  };
+}
+
+

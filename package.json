@@ -51,7 +51,7 @@
     "test": "node scripts/test.js --env=jsdom",
     "prettier": "prettier  --write 'src/**/*.js'",
     "lint:watch": "npm run lint -- --watch",
-    "lint" : "esw src --color"
+    "lint": "esw src --color"
   },
   "devDependencies": {
     "css-loader": "^0.28.7",

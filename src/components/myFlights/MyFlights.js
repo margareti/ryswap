@@ -12,7 +12,7 @@ render(){
       <h5>EDI => BCN</h5>
       <p>24.12.2018 14:45 | F3456234</p>
       <p>My Seats 
-           <button><i class="material-icons">airplanemode_active</i></button>
+           <button><i className="material-icons">airplanemode_active</i></button>
         </p>
       <p>
           <span>23A</span>
