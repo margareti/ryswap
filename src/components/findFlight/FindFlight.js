@@ -40,15 +40,7 @@ class FindFlight extends Component {
 
           <fieldset className="form__fieldset">
             <label>From </label>  
-            <select name="flightOrigin" onChange={this.handleFlightOriginChange}>
-              {
-                this.props.airports.map(
-                  airport => (
-                    <option key={airport.id} value={airport.id}>{airport.airportName}</option>  
-                  )
-                )
-              }
-            </select>
+            <Select  options={this.props.airports} handleChange={this.handleFlightOriginChange} displayName="airportName" name="flightOrigin"/>
           </fieldset>
           <fieldset className="form__fieldset">
             <label>To </label> 
@@ -76,9 +68,6 @@ function buildListOfAirports(routes) {
     if (!airports.find(airport => airport.id === route.origin.id)) {
       airports.push(route.origin);
     } 
-    if (!airports.find(airport => airport.id === route.destination.id)) {
-      airports.push(route.destination);
-    }
   });
   return airports;
 }
