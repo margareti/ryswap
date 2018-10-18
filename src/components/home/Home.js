@@ -25,8 +25,8 @@ class Home extends Component {
       <div>
         <Navigation />
         <h3 className="block  block--first">{this.props.user && this.props.user.name}, Welcome to Ryswap Home!</h3>
-        <FindFlight/>
-        <MyFlights/>
+        <FindFlight />
+        <MyFlights />
       </div>
     );
   }
