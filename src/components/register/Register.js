@@ -42,7 +42,7 @@ class Register extends Component {
           <input type="text" id="name" name="name" value={this.state.name} onChange={this.handleInputChange} />
           <label htmlFor="email">email: </label>
           <input type="text" id="email" name="email" value={this.state.email} onChange={this.handleInputChange} />
-          <br/>
+          <br />
           <label htmlFor="regPassword">Password: </label>
           <input
             type="password"

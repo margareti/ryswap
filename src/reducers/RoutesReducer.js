@@ -7,7 +7,7 @@ const initialRoutesState = {
 export default (routesState = initialRoutesState, action) => {
   switch (action.type) {
     case LOAD_ROUTES + SUCCESS:
-      console.log(action.routes)
+      console.log(action.routes);
       return { ...routesState, routes: action.routes };
     default:
       return { ...routesState };
