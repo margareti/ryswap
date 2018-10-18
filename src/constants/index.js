@@ -3,6 +3,7 @@ export const REGISTER_USER = 'REGISTER_USER';
 export const RESET_USER = 'RESET_USER';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 export const LOAD_ROUTES = 'LOAD_ROUTES';
+export const FIND_FLIGHTS = 'FIND_FLIGHTS';
 
 
 
