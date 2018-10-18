@@ -38,4 +38,9 @@ export function loadRoutes() {
   };
 }
 
-
+export function findFlights(flightsRequest) {
+  return {
+    type: Constants.FIND_FLIGHTS + Constants.REQUEST,
+    payload: flightsRequest
+  };
+}
