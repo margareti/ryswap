@@ -1,0 +1,15 @@
+.found-flights{
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 5px 0;
+  }
+
+  &__title {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+}
