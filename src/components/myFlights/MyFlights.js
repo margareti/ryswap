@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCurrentUser, resetUser } from '../../actions/actions';
+import moment from 'moment';
 import '../block/block.scss';
 import '../form/form.scss';
 
 class MyFlights extends React.Component {
   render() {
+    console.log(this.props.flights);
     return (
       <div className="block">
+      {this.props.flights.map(flight => (
+        <div key={flight.id}>
+          <h5>{flight.origin.airportCode} => {flight.destination.airportCode}</h5>
+          <p>{moment(flight.datetime).format('dddd DD/MM/YY')}</p>
+        </div>
+      ))}
         <h5>EDI => BCN</h5>
         <p>24.12.2018 14:45 | F3456234</p>
         <p>
@@ -31,4 +38,8 @@ class MyFlights extends React.Component {
   }
 }
 
-export default MyFlights;
+const mapStateToProps = state => (
+  {flights: state.myFlights.flights}
+);
+
+export default connect(mapStateToProps)(MyFlights);
