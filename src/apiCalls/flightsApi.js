@@ -6,5 +6,5 @@ export function findFlights(flight) {
 }
 
 export function addFlightToUser(flightId) {
-  return axios.put(`${API}/user/flights`, {flightId }).then(response => response.data);
+  return axios.post(`${API}/user/flights/${flightId}`).then(response => response.data);
 }
