@@ -4,6 +4,7 @@ import { loadRoutes, findFlights } from '../../actions/actions';
 import '../block/block.scss';
 import '../form/form.scss';
 import Select from '../select/Select';
+import FoundFlights from '../foundFlights/FoundFlights';
 
 class FindFlight extends Component {
   constructor(props) {
@@ -79,6 +80,7 @@ class FindFlight extends Component {
             </button>
           </fieldset>
         </form>
+        { this.props.foundFlights.length > 0 && <FoundFlights foundFlights={this.props.foundFlights}/>}
       </div>
     );
   }
@@ -87,7 +89,8 @@ class FindFlight extends Component {
 const mapStateToProps = state => {
   return {
     routes: state.routes.routes,
-    airports: buildListOfAirports(state.routes.routes)
+    airports: buildListOfAirports(state.routes.routes),
+    foundFlights: state.foundFlights.flights
   };
 };
 
