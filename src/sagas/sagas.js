@@ -6,7 +6,10 @@ import userSaga from './userSaga';
 import routesSaga from './routesSaga';
 import findFlightsSaga from './findFlightsSaga';
 import addFlightToUserSaga from './addFlightToUserSaga';
+import myFlightsSaga from './myFlightsSaga';
 
 export default function* root() {
-  yield all([authUserSaga(), registerUserSaga(), resetUserSaga(), userSaga(), routesSaga(), findFlightsSaga(), addFlightToUserSaga()]);
+  yield all([authUserSaga(), registerUserSaga(), 
+    resetUserSaga(), userSaga(), routesSaga(), findFlightsSaga(), addFlightToUserSaga(),
+    myFlightsSaga()]);
 }
