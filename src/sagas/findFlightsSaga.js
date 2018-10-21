@@ -1,6 +1,6 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { FIND_FLIGHTS, REQUEST, SUCCESS, FAILURE } from '../constants';
-import { findFlights } from '../apiCalls/findFlightsApi';
+import { findFlights } from '../apiCalls/flightsApi';
 
 export default function* registerWatcher() {
   yield takeEvery(FIND_FLIGHTS + REQUEST, findFlightsFlow);

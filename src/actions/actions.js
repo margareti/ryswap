@@ -44,3 +44,9 @@ export function findFlights(flightsRequest) {
     payload: flightsRequest
   };
 }
+export function addFlightToUser(flightId) {
+  return {
+    type: Constants.ADD_FLIGHT_TO_USER + Constants.REQUEST,
+    payload: flightId
+  };
+}

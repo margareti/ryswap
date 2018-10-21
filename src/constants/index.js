@@ -4,6 +4,7 @@ export const RESET_USER = 'RESET_USER';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 export const LOAD_ROUTES = 'LOAD_ROUTES';
 export const FIND_FLIGHTS = 'FIND_FLIGHTS';
+export const ADD_FLIGHT_TO_USER = 'ADD_FLIGHT_TO_USER'; 
 
 export const API = 'http://localhost:8080/api';
 
