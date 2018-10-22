@@ -5,6 +5,8 @@ import '../block/block.scss';
 import '../form/form.scss';
 
 class MyFlights extends React.Component {
+
+
   render() {
     console.log(this.props.flights);
     return (
@@ -38,8 +40,13 @@ class MyFlights extends React.Component {
   }
 }
 
+function sortFlightsByDate(flights) {
+ return flights.sort((a, b) => {return new Date(a.datetime).getTime() - new Date(b.datetime).getTime()} );
+}
+
+
 const mapStateToProps = state => (
-  {flights: state.myFlights.flights}
+  {flights: sortFlightsByDate(state.myFlights.flights)}
 );
 
 export default connect(mapStateToProps)(MyFlights);
