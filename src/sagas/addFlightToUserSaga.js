@@ -9,7 +9,7 @@ export default function* addFlight() {
 function* addFlightToUserFlow(action) {
   try {
     const result = yield call(addFlightToUser, action.payload);
-    yield put({ type: ADD_FLIGHT_TO_USER + SUCCESS, result });
+    yield put({ type: ADD_FLIGHT_TO_USER + SUCCESS, payload: result });
   } catch (e) {
     yield put({ type: ADD_FLIGHT_TO_USER + FAILURE, e });
   }
