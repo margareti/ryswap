@@ -12,3 +12,7 @@ export function addFlightToUser(flightId) {
 export function getMyFlights() {
   return axios.get(`${API}/user/flights`).then(response => response.data);
 }
+
+export function getFlightSeats(flightId) {
+  return axios.get(`${API}/flight/${flightId}/seats`).then(response => response.data);
+}

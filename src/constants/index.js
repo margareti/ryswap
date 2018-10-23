@@ -6,6 +6,7 @@ export const LOAD_ROUTES = 'LOAD_ROUTES';
 export const FIND_FLIGHTS = 'FIND_FLIGHTS';
 export const ADD_FLIGHT_TO_USER = 'ADD_FLIGHT_TO_USER'; 
 export const GET_USER_FLIGHTS = 'GET_USER_FLIGHTS'; 
+export const GET_FLIGHT_SEATS = 'GET_FLIGHT_SEATS'; 
 
 export const API = 'http://localhost:8080/api';
 
