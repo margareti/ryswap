@@ -52,8 +52,9 @@ export function addFlightToUser(flightId) {
   };
 }
 
-export function getUSerFlightsRequest() {
+export function getFlightSeats(flightId) {
   return {
-    type: Constants.GET_USER_FLIGHTS + Constants.REQUEST
+    type: Constants.GET_FLIGHT_SEATS + Constants.REQUEST,
+    payload: flightId
   };
 }

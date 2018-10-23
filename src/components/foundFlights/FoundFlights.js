@@ -18,7 +18,8 @@ submitForm = (evt) => {
 }
 
 handleSelectFlight = (evt) => {
-  this.setState({selectedFlight: evt.target.value})
+  this.setState({selectedFlight: evt.target.value});
+  console.log('handle select flight', evt.target.value)
 }
 
 componentDidMount() {
@@ -30,6 +31,7 @@ render() {
   if(!this.props.foundFlights) {
     return null;
   }
+  
 const firstFlight = this.props.foundFlights[0];
 
   return(
@@ -43,7 +45,8 @@ const firstFlight = this.props.foundFlights[0];
               { moment(flight.datetime).format('HH:mm')} 
              <input type="radio" name="foundFlight" value={flight.id} 
               onChange={this.handleSelectFlight} 
-              checked={flight.id === this.state.selectedFlight}/>
+              checked={flight.id == this.state.selectedFlight}
+              />
             </label>
           </div>
         ) )}
