@@ -2,7 +2,7 @@ import { GET_USER_FLIGHTS, GET_FLIGHT_SEATS, SUCCESS, FAILURE, RESET, ADD_FLIGHT
 
 const initialState = {
   flights: [],
-  seats: null
+  seats: []
 };
 
 export  default (flightsState = initialState, action) => {
