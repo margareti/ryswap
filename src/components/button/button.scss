@@ -1,0 +1,14 @@
+.button {
+  padding: 10px;
+  border-radius: 3px;
+  background: white;
+  align-items: center;
+
+  &--flex {
+    display: flex;
+    i {
+      font-size: 18px;
+      margin-right: 6px;
+    }
+  }
+}

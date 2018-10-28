@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import Popup from '../popup/Popup'
 import SelectSeat from '../selectSeat/SelectSeat'
-import {getFlightSeats}  from '../../actions/actions'
+import {getFlightSeats}  from '../../actions/actions';
+import MySeats from '../mySeats/MySeats';
 import '../block/block.scss';
 import '../form/form.scss';
 import './my-flights.scss';
+import '../button/button.scss';
 
 class MyFlights extends Component {
 
@@ -15,7 +17,6 @@ class MyFlights extends Component {
   }
 
   setEditedFlightId = (flightId) => {
-    console.log(" selected fklight ", flightId)
     this.setState({
       editedFlightId: flightId
     })
@@ -24,11 +25,7 @@ class MyFlights extends Component {
     }
   }
 
-
-
-
   render() {
-    console.log('my flights', this.props);
     if( ! this.props.flights) {
         return null;
     }
@@ -36,20 +33,20 @@ class MyFlights extends Component {
     return (
 
       <div className="block">
-      {this.props.flights.map(flight => (
-        <div key={flight.id} className="my-flights__flex">
+      {this.props.flights.map(flightObj => (
+        
+        <div key={flightObj.id} className="my-flights__flex">
           
           <div>
-            <h5>{flight.origin.airportCode} => {flight.destination.airportCode}</h5>
-            <p>{moment(flight.datetime).format('dddd DD/MM/YY HH:mm')}</p>
+            <h4>{flightObj.flight.origin.airportCode} => {flightObj.flight.destination.airportCode}</h4>
+            <p>{moment(flightObj.flight.datetime).format('dddd DD/MM/YY @ HH:mm')}</p>
           </div>
-          <div>
-            <div className="my-flights__seats-wrapper">
-              My seats: 
-              <span className="my-flights__seat">12C</span>
-              <span className="my-flights__seat">3D</span>
-            </div>
-            <button className="my-flights__button" onClick={() => {this.setEditedFlightId(flight.id)}}>Add/change seats</button>
+          <div className="my-flights__seats-wrapper">
+            <MySeats seats={flightObj.mySeats}/>
+            <button className="button  button--flex" onClick={() => {this.setEditedFlightId(flightObj.flight.id)}}> 
+              {/* <i className="material-icons">airplanemode_active</i> */}
+              {flightObj.mySeats.length ? 'Change' : 'Add' } seats
+            </button>
 
           </div>
 
@@ -75,7 +72,9 @@ class MyFlights extends Component {
         <p>-</p> <p>My Swaps</p>
         <p>16C => 3B</p> */}
         { this.state.editedFlightId &&
-         <Popup close={() => this.setEditedFlightId(null)}><SelectSeat/></Popup>
+         <Popup close={() => this.setEditedFlightId(null)}>
+          <SelectSeat close={() => this.setEditedFlightId(null)} flightId={this.state.editedFlightId}/>
+        </Popup>
         }
       </div>
     );

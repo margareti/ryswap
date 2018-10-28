@@ -1,0 +1,16 @@
+.my-seats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+  &__seat {
+    padding: 3px;
+    border: 1px solid white;
+    border-radius: 3px;
+    margin-left: 4px;
+    min-width: 35px;
+    display: block;
+    text-align: center;
+    background: #ffffff44;
+  }
+}

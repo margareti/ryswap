@@ -58,3 +58,13 @@ export function getFlightSeats(flightId) {
     payload: flightId
   };
 }
+
+export function addMySeats(flightId, seats) {
+  return {
+    type: Constants.ADD_MY_SEATS + Constants.REQUEST,
+    payload: {
+      flightId,
+      seats
+    }
+  };
+}
