@@ -28,8 +28,13 @@ class MyFlights extends Component {
 
 
   render() {
-    console.log(this.props.flights);
+    console.log('my flights', this.props);
+    if( ! this.props.flights) {
+        return null;
+    }
+
     return (
+
       <div className="block">
       {this.props.flights.map(flight => (
         <div key={flight.id} className="my-flights__flex">
