@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
 import './my-seats.scss';
 
 class MySeats extends Component {
@@ -18,8 +17,4 @@ class MySeats extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  mySeats: state.myFlights.mySeats
-})
-
-export default connect(mapStateToProps)(MySeats);
+export default MySeats;

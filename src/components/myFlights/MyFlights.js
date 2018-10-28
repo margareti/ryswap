@@ -26,13 +26,12 @@ class MyFlights extends Component {
   }
 
   render() {
-    if( ! this.props.flights) {
+    if( !this.props.flights || !this.props.flights.length) {
         return null;
     }
-
     return (
 
-      <div className="block">
+      <div className="block block--slick">
       {this.props.flights.map(flightObj => (
         
         <div key={flightObj.id} className="my-flights__flex">
@@ -43,9 +42,9 @@ class MyFlights extends Component {
           </div>
           <div className="my-flights__seats-wrapper">
             <MySeats seats={flightObj.mySeats}/>
-            <button className="button  button--flex" onClick={() => {this.setEditedFlightId(flightObj.flight.id)}}> 
+            <button className={`button  button--flex ${flightObj.mySeats.length ? 'button--square' : ''}`} onClick={() => {this.setEditedFlightId(flightObj.flight.id)}}> 
               {/* <i className="material-icons">airplanemode_active</i> */}
-              {flightObj.mySeats.length ? 'Change' : 'Add' } seats
+              {flightObj.mySeats.length ? '+' : 'Add your seats here' }
             </button>
 
           </div>

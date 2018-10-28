@@ -17,18 +17,21 @@ class SelectSeat extends Component {
     this.props.close();
   }
 
-  render(){
+  render() {
+    // console.log('seats are', this.props.seats)
+    // show current seats as well in the multiple select
     return (
     <div>
       <p>Choose your seats: </p>
       <Select options={this.props.seats} 
         isMulti 
         closeMenuOnSelect={false} 
-        onChange={this.updateSelectedSeats}/>
+        onChange={this.updateSelectedSeats}
+        defaultValue={formatSeats(this.props.currentSeats)}/>
       <button style={{marginTop: '14px'}} 
         className="button" 
         disabled={!this.state.seats} 
-        onClick={this.submitSeats}>Add</button>
+        onClick={this.submitSeats}>Those are my seats, I swear.</button>
     </div>
   )}
 }

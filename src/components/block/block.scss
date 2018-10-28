@@ -8,11 +8,10 @@
   background: $transparentWhite; 
   padding: 30px;
   border-radius: $borderRadius;
-
-  &--first {
-    margin-top: 100px;
+  &--slick {
+    padding: 3px;
+    margin-top: 5px;
   }
-
   &__title {
     margin: 0;
     margin-bottom: 10px;

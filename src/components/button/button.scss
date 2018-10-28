@@ -1,14 +1,19 @@
 .button {
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 3px;
   background: white;
-  align-items: center;
-
+  min-width: 30px;
+  
   &--flex {
     display: flex;
+    justify-content: center;
+    align-items: center;
     i {
       font-size: 18px;
       margin-right: 6px;
     }
+  }
+  &--square {
+    padding: 5px;
   }
 }
