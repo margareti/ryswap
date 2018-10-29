@@ -29,6 +29,7 @@ class MyFlights extends Component {
     if( !this.props.flights || !this.props.flights.length) {
         return null;
     }
+    const addSeatsBlock = (<span className="button--flex"><i className="material-icons">airline_seat_recline_extra</i> Tell us your seats</span>)
     return (
 
       <div className="block block--slick">
@@ -42,11 +43,14 @@ class MyFlights extends Component {
           </div>
           <div className="my-flights__seats-wrapper">
             <MySeats seats={flightObj.mySeats}/>
-            <button className={`button  button--flex ${flightObj.mySeats.length ? 'button--square' : ''}`} onClick={() => {this.setEditedFlightId(flightObj.flight.id)}}> 
-              {/* <i className="material-icons">airplanemode_active</i> */}
-              {flightObj.mySeats.length ? '+' : 'Add your seats here' }
+            <button className={`button  button--flex ${flightObj.mySeats.length ? 'button--square' : ''}`}      onClick={() => {this.setEditedFlightId(flightObj.flight.id)}}> 
+            
+            {flightObj.mySeats.length ? <i className="material-icons">edit</i> : addSeatsBlock}
             </button>
-
+            {flightObj.mySeats.length > 0 && (
+            <div>
+              <button className="button button--flex button--square"><i className="material-icons">swap_vert</i></button>
+            </div>)}
           </div>
 
         </div>

@@ -18,16 +18,14 @@ class SelectSeat extends Component {
   }
 
   render() {
-    // console.log('seats are', this.props.seats)
-    // show current seats as well in the multiple select
     return (
     <div>
-      <p>Choose your seats: </p>
+      <p>{this.props.myCurrentSeats.mySeats.length ? 'Edit ' : 'Choose '}your seats: </p>
       <Select options={this.props.seats} 
         isMulti 
         closeMenuOnSelect={false} 
         onChange={this.updateSelectedSeats}
-        defaultValue={formatSeats(this.props.currentSeats)}/>
+        defaultValue={formatTargetSeats(this.props.myCurrentSeats.mySeats)}/>
       <button style={{marginTop: '14px'}} 
         className="button" 
         disabled={!this.state.seats} 
@@ -36,12 +34,24 @@ class SelectSeat extends Component {
   )}
 }
 
-const mapStateToProps = state =>  (
-  {seats: formatSeats(state.myFlights.seats)}
-)
+const mapStateToProps = (state, ownProps) =>  ({
+  seats: formatSeats(state.myFlights.seats),
+  myCurrentSeats: getMySeatsFromFlight(state.myFlights.flights, ownProps.flightId)
+});
 
 function formatSeats(seats) {
+  if (!seats) return null;
   return seats.map(seat => ({value: seat.seat.id, label: seat.seat.seatNumber}))
+}
+
+function formatTargetSeats(seats) {
+  return seats.map(seat => ({value: seat.targetSeat.id, label: seat.targetSeat.seatNumber}))
+}
+
+function getMySeatsFromFlight(flights, flightId) {
+  return flights.find(flight => {
+    return flight.id === flightId
+  }) ;
 }
 
 export default connect(mapStateToProps, {addMySeats})(SelectSeat);
