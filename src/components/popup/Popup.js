@@ -7,7 +7,7 @@ class Popup extends Component {
     return (
       <div className="popup__backdrop">
         <div className="popup">
-          <button className="popup__button" onClick={this.props.close}>
+          <button className="popup__close-button" onClick={this.props.close}>
             &times;
           </button>
           {this.props.children}

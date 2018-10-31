@@ -1,4 +1,4 @@
-import { GET_USER_FLIGHTS, GET_FLIGHT_SEATS, SUCCESS, FAILURE, RESET, ADD_FLIGHT_TO_USER } from '../constants';
+import { GET_USER_FLIGHTS, GET_FLIGHT_SEATS, SUCCESS, FAILURE, RESET, ADD_FLIGHT_TO_USER, ADD_MY_SEATS } from '../constants';
 
 const initialState = {
   flights: [],
@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export  default (flightsState = initialState, action) => {
-  const { flights , payload, seats} = action;
+  const { flights , payload, seats, mySeats} = action;
   switch (action.type) {
     case GET_USER_FLIGHTS + SUCCESS:
       return { ...flightsState, flights };
