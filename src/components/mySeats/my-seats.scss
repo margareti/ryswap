@@ -3,6 +3,10 @@
   justify-content: space-around;
   align-items: center;
   margin-right: 3px;
+
+  &--left-align {
+    justify-content: flex-start;
+  }
   &__seat {
     padding: 3px;
     border-radius: 3px;
@@ -16,5 +20,12 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 2px grey;
+
+    &:nth-child(3) {
+      .my-seats--left-align & {
+        margin-right: 30px;
+      }
+    }
+
   }
 }

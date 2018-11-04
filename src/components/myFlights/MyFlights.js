@@ -5,6 +5,7 @@ import Popup from '../popup/Popup'
 import SelectSeat from '../selectSeat/SelectSeat'
 import {getFlightSeats}  from '../../actions/actions';
 import MySeats from '../mySeats/MySeats';
+import Aeroplane from '../aeroplane/Aeroplane';
 import '../block/block.scss';
 import '../form/form.scss';
 import './my-flights.scss';
@@ -12,13 +13,20 @@ import '../button/button.scss';
 
 class MyFlights extends Component {
 
-  state = {
-    editedFlightId : null
-  }
+  state = {}
 
   setEditedFlightId = (flightId) => {
     this.setState({
       editedFlightId: flightId
+    })
+    if( flightId ) {
+      this.props.getFlightSeats(flightId);
+    }
+  }
+
+  setSwapFlightId = (flightId) => {
+    this.setState({
+      swapFlightId: flightId
     })
     if( flightId ) {
       this.props.getFlightSeats(flightId);
@@ -49,7 +57,7 @@ class MyFlights extends Component {
             </button>
             {flightObj.mySeats.length > 0 && (
             <div>
-              <button className="button button--flex button--square"><i className="material-icons">swap_vert</i></button>
+              <button onClick={() => this.setSwapFlightId(flightObj.flight.id)} className="button button--flex button--square"><i className="material-icons">swap_vert</i></button>
             </div>)}
           </div>
 
@@ -77,6 +85,12 @@ class MyFlights extends Component {
         { this.state.editedFlightId &&
          <Popup close={() => this.setEditedFlightId(null)}>
           <SelectSeat close={() => this.setEditedFlightId(null)} flightId={this.state.editedFlightId}/>
+        </Popup>
+        }
+        { this.state.swapFlightId &&
+         <Popup close={() => this.setSwapFlightId(null)}>
+          {/* <SelectSeat close={() => this.setSwapFlightId(null)} flightId={this.state.swapFlightId}/> */}
+          <Aeroplane />
         </Popup>
         }
       </div>
