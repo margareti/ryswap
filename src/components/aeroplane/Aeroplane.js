@@ -15,7 +15,7 @@ render(){
       {this.props.seats.map( (row, index) => (
         <div key={row+index} className="my-seats my-seats--left-align" style={{marginTop: '5px'}}> {index + 1}:
           {row.map(seat => (
-          <span className="my-seats__seat" key={seat.seat.id}>{seat.seat.seatNumber}</span>
+          <span className="my-seats__seat" key={seat.seat.id}>{seat.seat.row}{seat.seat.column}</span>
         ))}
         </div>
       ))}
@@ -47,13 +47,10 @@ function formatAeroplaneSeats(seats) {
     F: 5
   }
   seats.forEach((item) => {
-    const seatArr = item.seat.seatNumber.split('');
-    const seat = seatArr.pop();
-    const row = parseInt(seatArr.join(''), 10);
+     const seat = item.seat.column;
+     const row =  item.seat.row - 1;  
     if (!aeroplaneSeats[row]) {aeroplaneSeats[row] = []};
-
     aeroplaneSeats[row][columns[seat]] = item;
   })
-  aeroplaneSeats.shift();
   return aeroplaneSeats;
 }

@@ -9,7 +9,7 @@ class MySeats extends Component {
     return (
       <div className="my-seats">
         {this.props.seats.map(seat => {
-          return <span key={seat.id} className="my-seats__seat">{seat.targetSeat.seatNumber}</span>
+          return <span key={seat.id} className="my-seats__seat">{seat.row}{seat.column}</span>
         })}
 
       </div>
