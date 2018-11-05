@@ -41,11 +41,11 @@ const mapStateToProps = (state, ownProps) =>  ({
 
 function formatSeats(seats) {
   if (!seats) return null;
-  return seats.map(seat => ({value: seat.seat.id, label: seat.seat.seatNumber}))
+  return seats.map(seat => ({value: seat.seat.id, label: `${seat.seat.row}${seat.seat.column}`}))
 }
 
 function formatTargetSeats(seats) {
-  return seats.map(seat => ({value: seat.targetSeat.id, label: seat.targetSeat.seatNumber}))
+  return seats.map(seat => ({value: seat.id, label: `${seat.row}${seat.column}`}))
 }
 
 function getMySeatsFromFlight(flights, flightId) {
