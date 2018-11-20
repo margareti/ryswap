@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadRoutes, findFlights } from '../../actions/actions';
 import '../mySeats/my-seats.scss';
+import Seat from '../seat/Seat';
 
 class Aeroplane extends Component {
 
@@ -13,16 +14,12 @@ render(){
   return(
     <div >
       {this.props.seats.map( (row, index) => (
-        <div key={row+index} className="my-seats my-seats--left-align" style={{marginTop: '5px'}}> {index + 1}:
+        <div key={`row${index}`} className="my-seats my-seats--left-align" style={{marginTop: '5px'}}> {index + 1}:
           {row.map(seat => (
-          <span className="my-seats__seat" key={seat.seat.id}>{seat.seat.row}{seat.seat.column}</span>
+            <Seat key={seat.seat.id} seat={seat.seat} ownSeat={seat.belongsToUser} occupied={seat.occupied && !seat.belongsToUser}/> 
         ))}
-        </div>
+        </div> 
       ))}
-
-
-      
-
     </div>
   )
 }

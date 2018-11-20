@@ -20,7 +20,10 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 2px grey;
-
+    &--own{
+      box-shadow: 0px 0px 1px 1px darkblue;
+    }
+    
     &:nth-child(3) {
       .my-seats--left-align & {
         margin-right: 30px;
