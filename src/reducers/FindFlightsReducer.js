@@ -11,7 +11,7 @@ export default (findFlightsState = initialFindFlightsState, action) => {
       return { ...findFlightsState, flights };
 
     case ADD_FLIGHT_TO_USER + SUCCESS:
-      return {...initialFindFlightsState};
+      return { ...initialFindFlightsState };
     default:
       return { ...findFlightsState };
   }

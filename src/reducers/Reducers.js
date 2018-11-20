@@ -5,7 +5,6 @@ import routes from './RoutesReducer';
 import foundFlights from './FindFlightsReducer';
 import myFlights from './FlightsReducer';
 
-
 export default combineReducers({
   auth,
   register,
