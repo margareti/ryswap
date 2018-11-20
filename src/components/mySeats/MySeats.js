@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './my-seats.scss';
+import Seat from '../seat/Seat';
 
 class MySeats extends Component {
   render() {
@@ -9,11 +10,10 @@ class MySeats extends Component {
     return (
       <div className="my-seats">
         {this.props.seats.map(seat => {
-          return <span key={seat.id} className="my-seats__seat">{seat.row}{seat.column}</span>
+          return <Seat key={seat.id} seat={seat} ownSeat />;
         })}
-
       </div>
-    )
+    );
   }
 }
 

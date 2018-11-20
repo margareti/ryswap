@@ -18,6 +18,6 @@ export function getFlightSeats(flightId) {
 }
 
 export function addMySeats(payload) {
-  const {seats, flightId} = payload;
+  const { seats, flightId } = payload;
   return axios.post(`${API}/flight/${flightId}/my-seats`, seats).then(response => response.data);
 }

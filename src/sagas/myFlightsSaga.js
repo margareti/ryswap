@@ -1,5 +1,5 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
-import { GET_USER_FLIGHTS,GET_FLIGHT_SEATS, ADD_MY_SEATS, REQUEST, SUCCESS, FAILURE } from '../constants';
+import { GET_USER_FLIGHTS, GET_FLIGHT_SEATS, ADD_MY_SEATS, REQUEST, SUCCESS, FAILURE } from '../constants';
 import { getMyFlights, getFlightSeats, addMySeats } from '../apiCalls/flightsApi';
 
 export default function* registerWatcher() {

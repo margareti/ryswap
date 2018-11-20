@@ -9,7 +9,14 @@ import addFlightToUserSaga from './addFlightToUserSaga';
 import myFlightsSaga from './myFlightsSaga';
 
 export default function* root() {
-  yield all([authUserSaga(), registerUserSaga(), 
-    resetUserSaga(), userSaga(), routesSaga(), findFlightsSaga(), addFlightToUserSaga(),
-    myFlightsSaga()]);
+  yield all([
+    authUserSaga(),
+    registerUserSaga(),
+    resetUserSaga(),
+    userSaga(),
+    routesSaga(),
+    findFlightsSaga(),
+    addFlightToUserSaga(),
+    myFlightsSaga()
+  ]);
 }

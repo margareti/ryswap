@@ -10,7 +10,7 @@ function* getCurrentUserFlow() {
   try {
     const user = yield call(getCurrentUser);
     yield put({ type: GET_CURRENT_USER + SUCCESS, user });
-    yield put({type: GET_USER_FLIGHTS + REQUEST})
+    yield put({ type: GET_USER_FLIGHTS + REQUEST });
   } catch (e) {
     yield put({ type: GET_CURRENT_USER + FAILURE, e });
   }

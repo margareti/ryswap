@@ -1,0 +1,36 @@
+.seat {
+  padding: 3px;
+  border-radius: 3px;
+  margin-left: 4px;
+  min-width: 32px;
+  display: block;
+  text-align: center;
+  background: #ffffff44;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 2px grey;
+  &--own{
+    box-shadow: 0px 0px 1px 1px darkblue;
+  }
+  
+  &--occupied {
+    background: repeating-linear-gradient( -45deg, #5acbaf, #5acbaf 6px, transparent 6px, transparent 13px );
+
+    &.seat--swap {
+      background: repeating-linear-gradient(-45deg, #5acbaf, #5acbaf 6px, orange 6px, orange 13px);
+    }
+  }
+
+  &--swap {
+    background: repeating-linear-gradient(-45deg, transparent, transparent 6px, orange 6px, orange 13px);
+  }
+
+  &:nth-child(3) {
+    .my-seats--left-align & {
+      margin-right: 30px;
+    }
+  }
+
+}

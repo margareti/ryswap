@@ -80,7 +80,7 @@ class FindFlight extends Component {
             </button>
           </fieldset>
         </form>
-        { this.props.foundFlights.length > 0 && <FoundFlights foundFlights={this.props.foundFlights}/>}
+        {this.props.foundFlights.length > 0 && <FoundFlights foundFlights={this.props.foundFlights} />}
       </div>
     );
   }
