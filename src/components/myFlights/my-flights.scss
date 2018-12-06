@@ -6,10 +6,19 @@
     background: #ffffff78;
     margin-bottom: 5px;
     padding: 15px 2px 4px 10px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
   &__seats-wrapper {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
   }
+
+  &__swap-cta {
+    margin-top: 5px;
+  }
+
+  
 }

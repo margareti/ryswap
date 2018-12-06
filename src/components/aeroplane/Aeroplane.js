@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadRoutes, findFlights } from '../../actions/actions';
 import '../mySeats/my-seats.scss';
 import Seat from '../seat/Seat';
+import Popup from '../popup/Popup';
+import SwapRequestBlock from '../swapRequestBlock/SwapRequestBlock';
 
 class Aeroplane extends Component {
   state = {};
 
+  setSelectedSeat = (seat) => {
+    this.setState({
+      selectedSeat: seat
+    })
+  }
+
   render() {
+    const fomattedSeats = formatAeroplaneSeats(this.props.seats);
     return (
       <div>
-        {this.props.seats.map((row, index) => (
+        {fomattedSeats.map((row, index) => (
           <div key={`row${index}`} className="my-seats my-seats--left-align" style={{ marginTop: '5px' }}>
             {' '}
             {index + 1}:
@@ -20,16 +28,27 @@ class Aeroplane extends Component {
                 seat={seat.seat}
                 ownSeat={seat.belongsToUser}
                 occupied={seat.occupied && !seat.belongsToUser}
+                onClick={() => this.setSelectedSeat(seat)}
               />
             ))}
           </div>
         ))}
+         { this.state.selectedSeat &&
+            <Popup close={() => this.setSelectedSeat(null)}>  
+              <SwapRequestBlock 
+                seat={this.state.selectedSeat.seat}
+                seats={this.props.seats.filter(seat => seat.belongsToUser).map(mySeat => mySeat.seat) }/>
+            </Popup>
+         }
+
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({ seats: formatAeroplaneSeats(state.myFlights.seats) });
+const mapStateToProps = state => ({ 
+  seats: state.flightSeats.seats
+});
 
 export default connect(mapStateToProps)(Aeroplane);
 

@@ -4,7 +4,6 @@ import { getMyFlights, getFlightSeats, addMySeats } from '../apiCalls/flightsApi
 
 export default function* registerWatcher() {
   yield takeEvery(GET_USER_FLIGHTS + REQUEST, myFlightsFlow);
-  yield takeEvery(GET_FLIGHT_SEATS + REQUEST, flightSeatsFlow);
   yield takeEvery(ADD_MY_SEATS + REQUEST, addMySeatsFlow);
 }
 
@@ -14,15 +13,6 @@ function* myFlightsFlow() {
     yield put({ type: GET_USER_FLIGHTS + SUCCESS, flights });
   } catch (error) {
     yield put({ type: GET_USER_FLIGHTS + FAILURE, error });
-  }
-}
-
-function* flightSeatsFlow(action) {
-  try {
-    const seats = yield call(getFlightSeats, action.payload);
-    yield put({ type: GET_FLIGHT_SEATS + SUCCESS, seats });
-  } catch (error) {
-    yield put({ type: GET_FLIGHT_SEATS + FAILURE, error });
   }
 }
 

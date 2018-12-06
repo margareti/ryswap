@@ -1,20 +1,15 @@
 import {
   GET_USER_FLIGHTS,
-  GET_FLIGHT_SEATS,
   SUCCESS,
-  FAILURE,
-  RESET,
   ADD_FLIGHT_TO_USER,
-  ADD_MY_SEATS
 } from '../constants';
 
 const initialState = {
-  flights: [],
-  seats: []
+  flights: []
 };
 
 export default (flightsState = initialState, action) => {
-  const { flights, payload, seats, mySeats } = action;
+  const { flights, payload } = action;
   switch (action.type) {
     case GET_USER_FLIGHTS + SUCCESS:
       return { ...flightsState, flights };
@@ -23,8 +18,6 @@ export default (flightsState = initialState, action) => {
       newState.flights = flightsState.flights.slice();
       newState.flights.push(payload);
       return newState;
-    case GET_FLIGHT_SEATS + SUCCESS:
-      return { ...flightsState, seats };
     default:
       return { ...flightsState };
   }
