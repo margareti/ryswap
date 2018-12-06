@@ -1,0 +1,15 @@
+.swap-request-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &--col {
+    flex-direction: column;
+  }
+  .seat {
+    margin-right: 10px;
+  }
+
+  &__cta {
+    margin-top: 10px;
+  }
+}

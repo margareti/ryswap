@@ -7,28 +7,5 @@
   &--left-align {
     justify-content: flex-start;
   }
-  &__seat {
-    padding: 3px;
-    border-radius: 3px;
-    margin-left: 4px;
-    min-width: 32px;
-    display: block;
-    text-align: center;
-    background: #ffffff44;
-    min-height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 2px grey;
-    &--own{
-      box-shadow: 0px 0px 1px 1px darkblue;
-    }
-    
-    &:nth-child(3) {
-      .my-seats--left-align & {
-        margin-right: 30px;
-      }
-    }
-
-  }
+  
 }

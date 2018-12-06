@@ -44,7 +44,7 @@ class SelectSeat extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  seats: formatSeats(state.myFlights.seats),
+  seats: formatSeats(state.flightSeats.seats),
   myCurrentSeats: getMySeatsFromFlight(state.myFlights.flights, ownProps.flightId)
 });
 
