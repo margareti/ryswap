@@ -27,6 +27,10 @@
     background: repeating-linear-gradient(-45deg, transparent, transparent 6px, orange 6px, orange 13px);
   }
 
+  &--selected {
+    background: orange;
+  }
+
   &:nth-child(3) {
     .my-seats--left-align & {
       margin-right: 30px;

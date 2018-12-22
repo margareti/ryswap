@@ -8,6 +8,7 @@ import findFlightsSaga from './findFlightsSaga';
 import addFlightToUserSaga from './addFlightToUserSaga';
 import myFlightsSaga from './myFlightsSaga';
 import flightSeatsSaga from './flightSeatsSaga';
+import swapRequestsSaga from './swapRequestsSaga';
 
 export default function* root() {
   yield all([
@@ -19,6 +20,7 @@ export default function* root() {
     findFlightsSaga(),
     addFlightToUserSaga(),
     myFlightsSaga(),
-    flightSeatsSaga()
+    flightSeatsSaga(),
+    swapRequestsSaga()
   ]);
 }

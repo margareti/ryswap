@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Popup from '../popup/Popup'
 import SelectSeat from '../selectSeat/SelectSeat'
@@ -18,15 +19,6 @@ class MyFlights extends Component {
   setEditedFlightId = (flightId) => {
     this.setState({
       editedFlightId: flightId
-    })
-    if( flightId ) {
-      this.props.getFlightSeats(flightId);
-    }
-  }
-
-  setSwapFlightId = (flightId) => {
-    this.setState({
-      swapFlightId: flightId
     })
     if( flightId ) {
       this.props.getFlightSeats(flightId);
@@ -67,7 +59,8 @@ class MyFlights extends Component {
             </button>
             {flightObj.mySeats.length > 0 && (
             <div>
-              <button onClick={() => this.setSwapFlightId(flightObj.flight.id)} className="button button--flex button--square"><i className="material-icons">swap_vert</i></button>
+              <Link to={`/flight/${flightObj.flight.id}`} className="button button--flex button--square"><i className="material-icons">swap_vert</i></Link>
+
             </div>)}
           </div>
 

@@ -21,3 +21,8 @@ export function addMySeats(payload) {
   const { seats, flightId } = payload;
   return axios.post(`${API}/flight/${flightId}/my-seats`, seats).then(response => response.data);
 }
+
+export function createSwapRequest(payload) {
+  const { flightId, fromSeatId, toSeatId} = payload;
+  return axios.post(`${API}/flight/${flightId}/swap-request`, {fromSeatId, toSeatId}).then(response => response.data);
+}

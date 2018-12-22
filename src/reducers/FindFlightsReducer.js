@@ -5,9 +5,10 @@ const initialFindFlightsState = {
 };
 
 export default (findFlightsState = initialFindFlightsState, action) => {
-  const { flights } = action;
+  
   switch (action.type) {
     case FIND_FLIGHTS + SUCCESS:
+      const { flights } = action;
       return { ...findFlightsState, flights };
 
     case ADD_FLIGHT_TO_USER + SUCCESS:
