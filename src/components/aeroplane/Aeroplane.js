@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import '../mySeats/my-seats.scss';
 import Seat from '../seat/Seat';
 import Popup from '../popup/Popup';
 import SwapRequestBlock from '../swapRequestBlock/SwapRequestBlock';
-import {getFlightSeats}  from '../../actions/actions';
+import {getFlightSeats, getUserFlights}  from '../../actions/actions';
 import './aeroplane.scss';
+import { FlightInfo } from '../flightInfo/FlightInfo';
 
 class Aeroplane extends Component {
   state = {};
@@ -21,13 +22,25 @@ class Aeroplane extends Component {
       const flightId = this.props.match.params.id;
       this.props.getFlightSeats(flightId);
     }
+    if(!this.props.flight) {
+      this.props.getUserFlights();
+    }
+  }
+
+  get flightInfo() {
+    return (
+      this.props.flight && <Fragment>
+        <FlightInfo flight={this.props.flight}/>
+      </Fragment>
+    )
   }
 
   render() {
     const fomattedSeats = formatAeroplaneSeats(this.props.seats);
     return (
       <div className="aeroplane">
-        <h2>Flight Information for Flight {this.props.match.params.id}</h2>
+        <h2>Flight Information </h2>
+        {this.flightInfo}
         {fomattedSeats.map((row, index) => (
           <div key={`row${index}`} className="my-seats my-seats--left-align" style={{ marginTop: '5px' }}>
             {' '}
@@ -56,11 +69,17 @@ class Aeroplane extends Component {
   }
 }
 
-const mapStateToProps = state => ({ 
-  seats: state.flightSeats.seats
+const mapStateToProps = (state, ownProps) => ({ 
+  seats: state.flightSeats.seats,
+  flight: getFlightById(state.myFlights.flights, ownProps.match.params.id)
 });
 
-export default connect(mapStateToProps, {getFlightSeats})(Aeroplane);
+export default connect(mapStateToProps, {getFlightSeats, getUserFlights})(Aeroplane);
+
+function getFlightById(flights, flightId) {
+  const id = parseInt(flightId, 10);
+  return flights.find(flight => {return flight.id === id})
+}
 
 function formatAeroplaneSeats(seats) {
   const aeroplaneSeats = [];
