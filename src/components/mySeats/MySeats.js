@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import './my-seats.scss';
 import Seat from '../seat/Seat';
 
-class MySeats extends Component {
+export class MySeats extends Component {
+  state = {};
+
+
   render() {
     if (!this.props.seats || !this.props.seats.length) {
       return null;
@@ -10,7 +13,9 @@ class MySeats extends Component {
     return (
       <div className="my-seats">
         {this.props.seats.map(seat => {
-          return <Seat key={seat.id} seat={seat} ownSeat />;
+          return <Seat key={seat.id} seat={seat} ownSeat 
+              selectionListener={this.props.selectionListener} 
+              selected={this.props.selectedSeat === seat.id}/>;
         })}
       </div>
     );

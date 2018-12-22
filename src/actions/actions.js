@@ -67,4 +67,4 @@ export function addMySeats(flightId, seats) {
       seats
     }
   };
-}
+} 

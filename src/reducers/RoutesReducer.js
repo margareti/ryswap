@@ -1,4 +1,4 @@
-import { LOAD_ROUTES, SUCCESS, FAILURE, RESET } from '../constants';
+import { LOAD_ROUTES, SUCCESS } from '../constants';
 
 const initialRoutesState = {
   routes: []
