@@ -11,6 +11,7 @@ import '../block/block.scss';
 import '../form/form.scss';
 import './my-flights.scss';
 import '../button/button.scss';
+import { FlightInfo } from '../flightInfo/FlightInfo';
 
 class MyFlights extends Component {
 
@@ -46,11 +47,8 @@ class MyFlights extends Component {
       {this.props.flights.map(flightObj => (
         
         <div key={flightObj.id} className="my-flights__flex">
-          
-          <div>
-            <h4>{flightObj.flight.origin.airportCode} => {flightObj.flight.destination.airportCode}</h4>
-            <p>{moment(flightObj.flight.datetime).format('dddd DD/MM/YY @ HH:mm')}</p>
-          </div>
+ 
+          <FlightInfo flight={flightObj} />
           <div className="my-flights__seats-wrapper">
             <MySeats seats={flightObj.mySeats}/>
             <button className={`button  button--flex ${flightObj.mySeats.length ? 'button--square' : ''}`}      onClick={() => {this.setEditedFlightId(flightObj.flight.id)}}> 
