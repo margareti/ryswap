@@ -12,6 +12,7 @@ import '../form/form.scss';
 import './my-flights.scss';
 import '../button/button.scss';
 import { FlightInfo } from '../flightInfo/FlightInfo';
+import SwapRequests from '../swapRequests/SwapRequests';
 
 class MyFlights extends Component {
 
@@ -47,8 +48,10 @@ class MyFlights extends Component {
       {this.props.flights.map(flightObj => (
         
         <div key={flightObj.id} className="my-flights__flex">
- 
-          <FlightInfo flight={flightObj} />
+          <div>
+            <FlightInfo flight={flightObj} />
+            <SwapRequests flightId={flightObj.id} />
+          </div>
           <div className="my-flights__seats-wrapper">
             <MySeats seats={flightObj.mySeats}/>
             <button className={`button  button--flex ${flightObj.mySeats.length ? 'button--square' : ''}`}      onClick={() => {this.setEditedFlightId(flightObj.flight.id)}}> 
@@ -61,28 +64,10 @@ class MyFlights extends Component {
 
             </div>)}
           </div>
-
+          
         </div>
+        
       ))}
-     
-        {/* <h5>EDI => BCN</h5>
-        <p>24.12.2018 14:45 | F3456234</p>
-        <p>
-          My Seats
-          <button>
-            <i className="material-icons">airplanemode_active</i>
-          </button>
-        </p>
-        <p>
-          <span>23A</span>
-          <span>3C</span>
-          <span>3B</span>
-        </p>
-        <p>My Swap Requests</p>
-        <p>23A => 3A</p>
-        <p>My Swap Offers</p>
-        <p>-</p> <p>My Swaps</p>
-        <p>16C => 3B</p> */}
         
       </div>
     );

@@ -50,7 +50,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 function formatSeats(seats) {
   if (!seats) return null;
-  return seats.map(seat => ({ value: seat.seat.id, label: `${seat.seat.row}${seat.seat.column}` }));
+  return seats
+    .filter(seat => !seat.occupied)
+    .map(seat => ({ value: seat.seat.id, label: `${seat.seat.row}${seat.seat.column}` }));
 }
 
 function formatTargetSeats(seats) {
