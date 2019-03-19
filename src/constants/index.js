@@ -9,6 +9,7 @@ export const GET_USER_FLIGHTS = 'GET_USER_FLIGHTS';
 export const GET_FLIGHT_SEATS = 'GET_FLIGHT_SEATS';
 export const ADD_MY_SEATS = 'ADD_MY_SEATS';
 export const CREATE_SWAP_REQUEST = 'CREATE_SWAP_REQUEST';
+export const GET_SWAP_REQUESTS = 'GET_SWAP_REQUESTS';
 
 export const API = 'http://localhost:8080/api';
 

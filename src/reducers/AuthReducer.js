@@ -17,7 +17,7 @@ export default (state = initialAuthStore, action) => {
       return { ...initialAuthStore, loggedIn: false };
 
     case GET_CURRENT_USER + SUCCESS:
-      return { ...initialAuthStore, user: action.user };
+      return { ...state, user: action.user };
 
     case GET_CURRENT_USER + FAILURE:
       return { ...initialAuthStore, loggedIn: false };

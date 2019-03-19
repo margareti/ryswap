@@ -72,3 +72,12 @@ export function addMySeats(flightId, seats) {
 export function getUserFlights() {
   return  { type: Constants.GET_USER_FLIGHTS + Constants.REQUEST }
 }
+
+export function getSwapRequests(flightId) {
+  return  {
+    type: Constants.GET_SWAP_REQUESTS + Constants.REQUEST,
+    payload: {
+      flightId
+    }
+  }
+}

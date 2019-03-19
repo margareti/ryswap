@@ -75,8 +75,8 @@ const mapDispatchToProps = dispatch =>  ({
 
 const mapStateToProps = state => ({
   flightId: state.flightSeats.flightId,
-  loading: state.swapRequests.loading,
-  errorCreated: state.swapRequests.error,
-  successCreated: state.swapRequests.success
+  loading: state.swapRequests.add.loading,
+  errorCreated: state.swapRequests.add.error,
+  successCreated: state.swapRequests.add.success
 })
 export default connect(mapStateToProps, mapDispatchToProps)(SwapRequestBlock);

@@ -5,8 +5,9 @@ import Seat from '../seat/Seat';
 import Popup from '../popup/Popup';
 import SwapRequestBlock from '../swapRequestBlock/SwapRequestBlock';
 import {getFlightSeats, getUserFlights}  from '../../actions/actions';
-import './aeroplane.scss';
+import '../../components/block/block.scss';
 import { FlightInfo } from '../flightInfo/FlightInfo';
+import BackButton from '../backButton/BackButton';
 
 class Aeroplane extends Component {
   state = {};
@@ -38,7 +39,8 @@ class Aeroplane extends Component {
   render() {
     const fomattedSeats = formatAeroplaneSeats(this.props.seats);
     return (
-      <div className="aeroplane">
+      <div className="block">
+        <BackButton clickHandler={this.props.history.goBack}/>
         <h2>Flight Information </h2>
         {this.flightInfo}
         {fomattedSeats.map((row, index) => (

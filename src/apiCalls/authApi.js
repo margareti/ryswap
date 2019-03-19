@@ -6,6 +6,5 @@ export function login(user) {
 }
 
 export function logout() {
-  console.log('calling logout user');
   return axios.post(`${API}/logout`).then(response => response.data);
 }

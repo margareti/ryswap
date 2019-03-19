@@ -9,6 +9,9 @@ class Navigation extends Component {
   };
 
   render() {
+    if (!this.props.authenticated) {
+      return null;
+    }
     return (
       <div className="navigation">
         <button className="navigation__button" onClick={this.handleLogout}>
@@ -19,7 +22,11 @@ class Navigation extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  authenticated: state.auth.loggedIn
+})
+
 export default connect(
-  null,
+  mapStateToProps,
   { resetUser }
 )(Navigation);
