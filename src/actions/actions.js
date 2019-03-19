@@ -81,3 +81,33 @@ export function getSwapRequests(flightId) {
     }
   }
 }
+
+export function cancelSwapRequest(swapRequestId, flightId) {
+  return  {
+    type: Constants.CANCEL_SR + Constants.REQUEST,
+    payload: {
+      swapRequestId,
+      flightId
+    }
+  }
+}
+
+export function declineSwapRequest(swapRequestId, flightId) {
+  return  {
+    type: Constants.DECLINE_SR + Constants.REQUEST,
+    payload: {
+      swapRequestId,
+      flightId
+    }
+  }
+}
+
+export function acceptSwapRequest(swapRequestId, flightId) {
+  return  {
+    type: Constants.ACCEPT_SR + Constants.REQUEST,
+    payload: {
+      swapRequestId,
+      flightId
+    }
+  }
+}
